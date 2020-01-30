@@ -1,2 +1,2 @@
 !#/bin/bash
-chown [-h] betty:holberton _hello
+sudo shown -h betty:holberton _hello
