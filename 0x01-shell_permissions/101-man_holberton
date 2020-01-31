@@ -1,0 +1,26 @@
+."man(2)
+
+.Sh NAME
+.B holberton
+- become a full-stack software enginner.
+
+.Sh SYNOPSIS
+holberton [STUDENTNAME]
+
+.Sh DESCRIPTION
+Holberton school is a project-based alternative to colllege for the next generation of software engineers.
+
+.Sh OPTION
+:B holberton
+does not take any options. However, However, yow can supply studentname.
+
+.Sh SEE ALSO
+I.
+perrlearning(2), projectbased(2), fullstack(2), Betty(1)
+
+Sh. BUGS
+
+No known bugs
+
+Sh. AUTHOR
+Julien barbier, Sylvain Kalache, Sophie Barbier, Giuillaume Salva, Kris Bredemeier, Julien Cyr, Alex Gautier and all the Holberton mentor
