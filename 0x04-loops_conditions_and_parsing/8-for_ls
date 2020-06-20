@@ -1,0 +1,6 @@
+#!/usr/bin/env bash
+# This script print the list of current directory
+for f in *
+do
+echo "$f" | cut -d '-' -f 2
+done
