@@ -1,7 +1,7 @@
 #!/usr/bin/env bash
 # This script is displaying "Holberton School" 10 times
 i="0"
-while [ $i -lt 10 ]
+while [ $i -le 9 ]
 do
 if [ $i -eq 4 ]
 then
