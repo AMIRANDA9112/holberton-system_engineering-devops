@@ -1,4 +1,5 @@
-# This script is displaying "Holberton School" 10 times
+#!/usr/bin/env bash
+# This script is displaying a clock
 hours="0"
 minute="1"
 while [ $hours -lt 13 ]
@@ -11,5 +12,4 @@ minute=$((minute+1))
 done
 hours=$((hours+1))
 minute="1"
-
 done
