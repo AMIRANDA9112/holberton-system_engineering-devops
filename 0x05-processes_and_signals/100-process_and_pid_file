@@ -1,0 +1,16 @@
+#!/usr/bin/env bash
+# This script create a file, and display the pid of file proces
+
+FILE="/var/run/holbertonscript.pid"
+sudo touch $FILE
+echo $$ > $FILE
+
+trap 'echo I hate the kill command && sudo rm $FILE && exit' 15
+trap "echo Y U no love me?!" 2
+trap 'sudo rm $FILE && exit' 3
+
+while true;
+do
+	echo "To infinity and beyond"
+	sleep 2
+done
