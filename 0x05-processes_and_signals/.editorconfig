@@ -1,0 +1,12 @@
+[*]
+charset = utf-8
+end_of_line = lf
+indent_size = 4
+indent_style = space
+insert_final_newline = false
+max_line_length = 120
+tab_width = 4
+
+[{*.bash,*.sh,*.zsh,0-what-is-my-pid,1-for_holberton_school,10-fizzbuzz,100-read_and_cut,2-while_holberton_school,3-until_holberton_school,4-if_9_say_hi,5-4_bad_luck_8_is_your_chance,6-superstitious_numbers,7-clock,8-for_ls,9-to_file_or_not_to_file}]
+indent_size = 2
+tab_width = 2
