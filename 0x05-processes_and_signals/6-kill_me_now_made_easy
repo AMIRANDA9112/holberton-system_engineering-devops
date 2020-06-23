@@ -1,0 +1,4 @@
+#!/usr/bin/env bash
+# This script kill a specific file by name
+
+pidof "4-to_infinity_and_beyond"

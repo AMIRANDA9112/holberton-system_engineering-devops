@@ -1,0 +1,4 @@
+#!/usr/bin/env bash
+# Display the pid of a specify word
+
+pgrep -l bash
