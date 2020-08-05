@@ -1,0 +1,5 @@
+#!/usr/bin/env bash
+# config to connect only one parameter "Password"
+Host *
+    IdentityFile ~/.ssh/holberton
+    PasswordAuthentication no
