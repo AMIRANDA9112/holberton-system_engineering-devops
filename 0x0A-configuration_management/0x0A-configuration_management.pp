@@ -1,4 +1,4 @@
-# create a file
+# create a puppet file
 file { '/tmp/holberton':
   ensure  => 'present',
   mode    => '0744',
