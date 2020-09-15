@@ -1,5 +1,4 @@
 #!/usr/bin/env bash
-#!/usr/bin/env bash
 # Configure Nginx server in a ubuntu server 16.04
 # make a redirection 301
 # make a 404 not found page

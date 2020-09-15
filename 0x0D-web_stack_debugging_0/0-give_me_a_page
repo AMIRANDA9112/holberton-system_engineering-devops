@@ -1,4 +1,3 @@
 #!/usr/bin/env bash
 # start apache server
-
 sudo service apache2 restart
