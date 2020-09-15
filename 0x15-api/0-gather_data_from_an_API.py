@@ -2,9 +2,8 @@
 """ api json """
 
 
-from sys import argv
 import requests
-
+from sys import argv
 
 if __name__ == "__main__":
     user_id = argv[1]
