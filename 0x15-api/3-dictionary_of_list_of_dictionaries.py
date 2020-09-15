@@ -1,5 +1,6 @@
 #!/usr/bin/python3
 """return all from api"""
+
 import json
 import requests
 
