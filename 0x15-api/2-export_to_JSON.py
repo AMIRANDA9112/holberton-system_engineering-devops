@@ -13,12 +13,12 @@ if __name__ == "__main__":
     user_name = user.json().get('username')
 
     url = 'https://jsonplaceholder.typicode.com/users/' + user_id + '/todos'
-    task_li = requests.get(url)
+    task_1 = requests.get(url)
 
     dict_task = {}
     list_task = []
 
-    for task in task_li.json():
+    for task in task_1.json():
         t_dict = {"task": task['title'],
                   "completed": task['completed'],
                   "username": user_name}
