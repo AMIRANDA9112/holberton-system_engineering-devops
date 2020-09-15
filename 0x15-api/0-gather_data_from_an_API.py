@@ -17,9 +17,9 @@ if __name__ == "__main__":
     task_li = requests.get(url)
     done = [task for task in task_li.json() if task['completed'] is True]
 
-    len_d = len(done)
-    len_ = len(task_li.json())
-    print("Employee {} is done with tasks({}/{}):".format(user,len_d,len_))
+    ld = len(done)
+    lt = len(task_li.json())
+    print("Employee {} is done with tasks({}/{}):".format(user, ld, lt))
 
     for task in done:
         print('\t ' + task['title'])

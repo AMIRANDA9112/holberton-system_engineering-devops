@@ -1,7 +1,8 @@
 #!/usr/bin/python3
 """api"""
-from sys import argv
+
 import csv
+from sys import argv
 import requests
 
 
