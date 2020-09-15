@@ -1,8 +1,9 @@
 #!/usr/bin/python3
 """ api json """
 
-import requests
+
 from sys import argv
+import requests
 
 
 if __name__ == "__main__":
