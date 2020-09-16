@@ -1,5 +1,7 @@
 #!/usr/bin/python3
-"""return all from api"""
+"""
+ Python script to export data in the JSON format
+"""
 
 import json
 import requests
