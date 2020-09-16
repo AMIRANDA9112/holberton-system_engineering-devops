@@ -13,7 +13,8 @@ if __name__ == "__main__":
     user = requests.get(url)
     user_name = user.json().get('username')
 
-    url = 'https://jsonplaceholder.typicode.com/users/' + user_id + '/todos'
+    url = 'https://jsonplaceholder.typicode.com/users/'\
+          + user_id + '/todos'
     task_1 = requests.get(url)
 
     dict_task = {}

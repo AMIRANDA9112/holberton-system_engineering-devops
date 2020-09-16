@@ -6,7 +6,6 @@
 import json
 import requests
 
-
 if __name__ == "__main__":
 
     url_user = 'https://jsonplaceholder.typicode.com/users/'
@@ -18,19 +17,21 @@ if __name__ == "__main__":
     for usr in json_user:
 
         usr_id = str(usr['id'])
-        url = 'https://jsonplaceholder.typicode.com/todos?userId=' + usr_id
+        url = 'https://jsonplaceholder.typicode.com/todos?userId='\
+              + usr_id
+
         r_task = requests.get(url)
         json_task = r_task.json()
         base = []
 
         for task in json_task:
-            base.append({
-                'username': usr['username'],
-                'task': task['title'],
-                'completed': task['completed']
-                })
+            base.append({'username': usr['username'],
+                         'task': task['title'],
+                         'completed': task['completed']})
 
         data[usr['id']] = base
 
-    with open('todo_all_employees.json', mode='w') as json_file:
+    with open('todo_all_employees.json',
+              mode='w') \
+            as json_file:
         json.dump(data, json_file)

@@ -23,7 +23,10 @@ if __name__ == "__main__":
     employee_username = json_user['username']
 
     with open(user_id + '.csv', mode='w') as file:
-        writer = csv.writer(file, delimiter=',', quotechar='"', quoting=csv.QUOTE_ALL)
+        writer = csv.writer(file,
+                            delimiter=',',
+                            quotechar='"',
+                            quoting=csv.QUOTE_ALL)
 
         for task in json_todos:
             writer.writerow([user_id, employee_username,
