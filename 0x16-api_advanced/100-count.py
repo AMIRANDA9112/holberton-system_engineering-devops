@@ -4,11 +4,9 @@
 import requests
 
 
-def count_words(subreddit, word_list, after=None, my_dict=None):
+def count_words(subreddit, word_list, after=None, my_dict={}):
     """ API query subreddit """
 
-    if my_dict is None:
-        my_dict = {}
     query = requests.get((
         'https://www.reddit.com/r/{}'
         '/hot.json'.format(subreddit)),
