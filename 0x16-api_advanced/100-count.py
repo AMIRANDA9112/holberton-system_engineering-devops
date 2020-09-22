@@ -1,34 +1,33 @@
 #!/usr/bin/python3
-""" Request recursively the top ten hot posts """
+"""A file to make a query to an endpoint
+"""
+from requests import request
 
-import requests
 
-
-def count_words(subreddit, word_list, after=None, my_dict={}):
-    """ API query subreddit """
-    query = requests.get(('https://www.reddit.com/r/{}'
-                          '/hot.json'.format(subreddit)),
-                         allow_redirects=False,
-                         params={'after': after},
-                         headers={'User-Agent': 'Pear'})
-
-    if query and query.status_code == 200:
-        list_query = query.json().get('data').get('children')
-        for child in list_query:
-            title1 = child.get('data').get('title')
-            for word in word_list:
-                try:
-                    my_dict[word] += title1.lower().split().count(word.lower())
-                except KeyError:
-                    my_dict[word] = title1.lower().split().count(word.lower())
-        after = query.json().get('data').get('after')
-        if after is None:
-            for key, val in sorted(my_dict.items(),
-                                   key=lambda x: x[1],
-                                   reverse=True):
-                if val != 0:
-                    print("{}: {}".format(key, val))
-            return
-        return count_words(subreddit, word_list, after, my_dict)
-    else:
+def count_words(subreddit, word_list, after="", counter={}, ini=0):
+    """A recursive function that queries the Reddit API, parses the title
+    of all hot articles, and prints a sorted count of given keywords
+    (case-insensitive, delimited by spaces. Javascript should count as
+    javascript, but java should not)"""
+    if ini == 0:
+        for word in word_list:
+            counter[word] = 0
+    url = "https://api.reddit.com/r/{}/hot?after={}".format(subreddit, after)
+    headers = {"User-Agent": "Python3"}
+    response = request("GET", url, headers=headers).json()
+    try:
+        top = response['data']['children']
+        _after = response['data']['after']
+        for item in top:
+            for word in counter:
+                counter[word] += item['data']['title'].lower(
+                    ).split(' ').count(word.lower())
+        if _after is not None:
+            count_words(subreddit, word_list, _after, counter, 1)
+        else:
+            str = sorted(counter.items(), key=lambda kv: kv[1], reverse=True)
+            for name, num in str:
+                if num != 0:
+                    print('{}: {}'.format(name, num))
+    except Exception:
         return
