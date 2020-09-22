@@ -5,10 +5,11 @@ import requests
 
 
 def count_words(subreddit, word_list, after=None, my_dict={}):
-    """ API queri subreddit """
+    """ API query subreddit """
 
     query = requests.get((
-        'https://www.reddit.com/r/{}/hot.json'.format(subreddit)),
+        'https://www.reddit.com/r/{}'
+        '/hot.json'.format(subreddit)),
                          allow_redirects=False,
                          params={'after': after},
                          headers={'User-Agent': 'Pear'})
@@ -22,6 +23,7 @@ def count_words(subreddit, word_list, after=None, my_dict={}):
                     my_dict[word] += title1.lower().split().count(word.lower())
                 except KeyError:
                     my_dict[word] = title1.lower().split().count(word.lower())
+
         after = query.json().get('data').get('after')
 
         if after is None:
