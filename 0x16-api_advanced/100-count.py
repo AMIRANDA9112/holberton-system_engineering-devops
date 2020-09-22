@@ -7,14 +7,16 @@ import requests
 def count_words(subreddit, word_list, after=None, my_dict={}):
     """ API queri subreddit """
 
-    url = 'https://www.reddit.com/r/{}/hot.json'.format(subreddit)
-    query = requests.get(url, allow_redirects=False,
+    query = requests.get((
+        'https://www.reddit.com/r/{}/hot.json'.format(subreddit)),
+                         allow_redirects=False,
                          params={'after': after},
                          headers={'User-Agent': 'Pear'})
+
     if query and query.status_code == 200:
         list_query = query.json().get('data').get('children')
-        for children in list_query:
-            title1 = children.get('data').get('title')
+        for child in list_query:
+            title1 = child.get('data').get('title')
             for word in word_list:
                 try:
                     my_dict[word] += title1.lower().split().count(word.lower())
@@ -23,8 +25,8 @@ def count_words(subreddit, word_list, after=None, my_dict={}):
         after = query.json().get('data').get('after')
 
         if after is None:
-            for key, val in sorted(my_dict.items(), key=lambda x: x[1],
-                                   reverse=True):
+            for key, val in sorted(my_dict.items(),
+                                   key=lambda x: x[1], reverse=True):
                 if val != 0:
                     print("{}: {}".format(key, val))
             return
