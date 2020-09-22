@@ -7,7 +7,8 @@ import requests
 def count_words(subreddit, word_list, after=None, my_dict={}):
     """ API query subreddit """
 
-    url = 'https://www.reddit.com/r/{}/hot.json'.format(subreddit)
+    url = 'https://www.reddit.com/r/{}' \
+          '/hot.json'.format(subreddit)
 
     query = requests.get(url,
                          allow_redirects=False,
