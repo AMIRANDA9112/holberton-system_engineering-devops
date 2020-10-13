@@ -15,10 +15,10 @@
 #
 server {
         listen 80 default_server;
-error_page 404 /custom_404.html; location = /custom_404.html {root /usr/share/nginx/html;
- internal;}
+add_header X-Served-By 'gc-1642-web-01-1597382403';
+        error_page 404 /404.html;
 rewrite ^/redirect_me https://www.youtube.com/watch?v=QH2-TGUlwu4 permanent;
-add_header X-Served-By "gc-1642-web-01-1597382403";
+        listen [::]:80 default_server;
         # SSL configuration
         #
         # listen 443 ssl default_server;
